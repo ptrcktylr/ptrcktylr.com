@@ -1,141 +1,189 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Patrick Taylor</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-</head>
-<body>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body>
     <nav class="nav">
-        <div class="nav-container">
-            <a href="index.html" class="logo">PT</a>
-            <ul class="nav-links">
-                <li><a href="#work">work</a></li>
-                <li><a href="art.html">art</a></li>
-                <li><a href="resume.html">resume</a></li>
-                <li><a href="psych.html">psych</a></li>
-                <li><a href="#about">about</a></li>
-                <li>
-                    <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
-                        <span class="theme-icon">◐</span>
-                    </button>
-                </li>
-            </ul>
-        </div>
+      <div class="nav-container">
+        <a href="index.html" class="logo">PT</a>
+        <ul class="nav-links">
+          <li><a href="#work">work</a></li>
+          <li><a href="art.html">art</a></li>
+          <li><a href="resume.html">resume</a></li>
+          <li><a href="psych.html">psych</a></li>
+          <li><a href="#about">about</a></li>
+          <li>
+            <button
+              id="theme-toggle"
+              class="theme-toggle"
+              aria-label="Toggle dark mode"
+            >
+              <span class="theme-icon">◐</span>
+            </button>
+          </li>
+        </ul>
+      </div>
     </nav>
 
     <main>
-        <section class="hero">
-            <div class="hero-background">
-                <img src="images/20260104144218_001.jpg" alt="" class="hero-art" loading="eager">
+      <section class="hero">
+        <div class="hero-background">
+          <img
+            src="images/20260104144218_001.jpg"
+            alt=""
+            class="hero-art"
+            loading="eager"
+          />
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <h1>Patrick Taylor</h1>
+          <p class="subtitle">Ex software engineer</p>
+          <p class="location">Auckland, NZ / New York, NY</p>
+        </div>
+      </section>
+
+      <section id="work" class="section">
+        <div class="container">
+          <h2 class="section-title">Selected Work</h2>
+          <div class="projects-grid">
+            <div class="project-card">
+              <div class="project-header">
+                <h3>Portfolio Sites</h3>
+                <span class="project-tag">Web Dev</span>
+              </div>
+              <p class="project-description">
+                Custom static websites with responsive galleries, dark mode, and
+                optimized performance. Clean code, zero dependencies.
+              </p>
+              <div class="project-links">
+                <a
+                  href="https://margaretbewley.com"
+                  target="_blank"
+                  class="link"
+                  >margaretbewley.com</a
+                >
+              </div>
             </div>
-            <div class="hero-overlay"></div>
-            <div class="hero-content">
-                <h1>Patrick Taylor</h1>
-                <p class="subtitle">Ex software engineer</p>
-                <p class="location">Auckland, NZ / New York, NY</p>
+
+            <div class="project-card">
+              <div class="project-header">
+                <h3>NYC Median Income Visualization</h3>
+                <span class="project-tag">Data Viz</span>
+              </div>
+              <p class="project-description">
+                Interactive map showing household income data across NYC zip
+                codes from 2011-2018. Built with Python, Bokeh, and Pandas using
+                IRS data.
+              </p>
+              <div class="project-links">
+                <a
+                  href="https://github.com/ptrcktylr/nyc-income"
+                  target="_blank"
+                  class="link"
+                  >GitHub</a
+                >
+                <a
+                  href="https://nyc-income.onrender.com"
+                  target="_blank"
+                  class="link"
+                  >View Live</a
+                >
+              </div>
             </div>
-        </section>
 
-        <section id="work" class="section">
-            <div class="container">
-                <h2 class="section-title">Selected Work</h2>
-                <div class="projects-grid">
-
-                    <div class="project-card">
-                        <div class="project-header">
-                            <h3>Portfolio Sites</h3>
-                            <span class="project-tag">Web Dev</span>
-                        </div>
-                        <p class="project-description">
-                            Custom static websites with responsive galleries, dark mode, and optimized performance.
-                            Clean code, zero dependencies.
-                        </p>
-                        <div class="project-links">
-                            <a href="https://margaretbewley.com" target="_blank" class="link">margaretbewley.com</a>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-header">
-                            <h3>NYC Median Income Visualization</h3>
-                            <span class="project-tag">Data Viz</span>
-                        </div>
-                        <p class="project-description">
-                            Interactive map showing household income data across NYC zip codes from 2011-2018.
-                            Built with Python, Bokeh, and Pandas using IRS data.
-                        </p>
-                        <div class="project-links">
-                            <a href="https://github.com/ptrcktylr/nyc-income" target="_blank" class="link">GitHub</a>
-                            <a href="https://nyc-income.onrender.com" target="_blank" class="link">View Live</a>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-header">
-                            <h3>Splat Issue Tracker</h3>
-                            <span class="project-tag">Full Stack</span>
-                        </div>
-                        <p class="project-description">
-                            Ticketing system for developers and project managers.
-                            Django backend with PostgreSQL and AWS integration.
-                        </p>
-                        <div class="project-links">
-                            <a href="https://github.com/ptrcktylr/splat-issue-tracker" target="_blank" class="link">GitHub</a>
-                            <a href="https://splat-issue-tracker.onrender.com" target="_blank" class="link">View Live</a>
-                        </div>
-                    </div>
-
-                    <div class="project-card">
-                        <div class="project-header">
-                            <h3>Odinbook</h3>
-                            <span class="project-tag">Full Stack</span>
-                        </div>
-                        <p class="project-description">
-                            Social media platform built with Ruby on Rails.
-                            Features posts, comments, friend connections, and image storage.
-                        </p>
-                        <div class="project-links">
-                            <a href="https://github.com/ptrcktylr/odin-book" target="_blank" class="link">GitHub</a>
-                        </div>
-                    </div>
-
-                </div>
+            <div class="project-card">
+              <div class="project-header">
+                <h3>Splat Issue Tracker</h3>
+                <span class="project-tag">Full Stack</span>
+              </div>
+              <p class="project-description">
+                Ticketing system for developers and project managers. Django
+                backend with PostgreSQL and AWS integration.
+              </p>
+              <div class="project-links">
+                <a
+                  href="https://github.com/ptrcktylr/splat-issue-tracker"
+                  target="_blank"
+                  class="link"
+                  >GitHub</a
+                >
+                <a
+                  href="https://splat-issue-tracker.onrender.com"
+                  target="_blank"
+                  class="link"
+                  >View Live</a
+                >
+              </div>
             </div>
-        </section>
 
-        <section id="about" class="section about-section">
-            <div class="container">
-                <h2 class="section-title">About</h2>
-                <div class="about-content">
-                    <p>
-                        Ex software engineer currently based in Auckland, NZ. Originally from New York.
-                    </p>
-                    <p>
-                        I build things with code. Sometimes they're practical, sometimes they're experimental.
-                    </p>
-                    <p>
-                        I'm pursuing psychiatry - psychology, psychedelic-assisted therapy, understanding consciousness.
-                        This site will grow to include art, music, and recommended readings as I continue exploring
-                        what it means to create authentically.
-                    </p>
-                    <div class="contact-links">
-                        <a href="mailto:ptrcktylr@icloud.com" class="link">Email</a>
-                        <a href="https://github.com/ptrcktylr" target="_blank" class="link">GitHub</a>
-                    </div>
-                </div>
+            <div class="project-card">
+              <div class="project-header">
+                <h3>SentiMental Health</h3>
+                <span class="project-tag">Full Stack</span>
+              </div>
+              <p class="project-description">
+                Mental health journaling platform with sentiment analysis using
+                DeepAI. Patients post entries, track mood progress, and connect
+                with assigned professionals. Built with Java/Spring Boot,
+                Angular, and Gradle.
+              </p>
+              <div class="project-links">
+                <a
+                  href="https://github.com/ptrcktylr/mental-health-app"
+                  target="_blank"
+                  class="link"
+                  >GitHub</a
+                >
+              </div>
             </div>
-        </section>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section about-section">
+        <div class="container">
+          <h2 class="section-title">About</h2>
+          <div class="about-content">
+            <p>
+              Ex software engineer currently based in Auckland, NZ. Originally
+              from New York.
+            </p>
+            <p>
+              I build things with code. Sometimes they're practical, sometimes
+              they're experimental.
+            </p>
+            <p>
+              I'm pursuing psychiatry - psychology, psychedelic-assisted
+              therapy, understanding consciousness. This site will grow to
+              include art, music, and recommended readings as I continue
+              exploring what it means to create authentically.
+            </p>
+            <div class="contact-links">
+              <a href="mailto:ptrcktylr@icloud.com" class="link">Email</a>
+              <a
+                href="https://github.com/ptrcktylr"
+                target="_blank"
+                class="link"
+                >GitHub</a
+              >
+            </div>
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer class="footer">
-        <div class="container">
-            <p>&copy; 2026 Patrick Taylor</p>
-        </div>
+      <div class="container">
+        <p>&copy; 2026 Patrick Taylor</p>
+      </div>
     </footer>
 
     <script src="js/main.js"></script>
-</body>
+  </body>
 </html>
