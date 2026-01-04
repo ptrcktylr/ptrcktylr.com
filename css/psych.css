@@ -68,6 +68,25 @@
     color: var(--accent);
 }
 
+/* Book cards with cover images */
+.resource-card.book-card {
+    display: flex;
+    gap: var(--space-md);
+    align-items: flex-start;
+}
+
+.book-cover {
+    flex-shrink: 0;
+    width: 80px;
+    height: auto;
+    border-radius: 2px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.book-content {
+    flex: 1;
+}
+
 .resource-description {
     color: var(--text-secondary);
     line-height: 1.7;
