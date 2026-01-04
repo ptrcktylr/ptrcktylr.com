@@ -56,6 +56,11 @@
     font-style: italic;
 }
 
+.art-untitle {
+    margin: 0;
+    font-style: normal;
+}
+
 .art-year {
     margin: 0.25rem 0 0 0;
     opacity: 0.8;
