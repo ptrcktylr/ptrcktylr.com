@@ -58,6 +58,16 @@
     margin-bottom: var(--space-sm);
 }
 
+.resource-card h3 a {
+    color: var(--text-primary);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.resource-card h3 a:hover {
+    color: var(--accent);
+}
+
 .resource-description {
     color: var(--text-secondary);
     line-height: 1.7;
