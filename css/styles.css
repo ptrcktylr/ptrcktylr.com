@@ -302,6 +302,12 @@ body {
     gap: 1.5rem;
 }
 
+.contact-links .link {
+    font-size: 1.05rem;
+    font-weight: 500;
+    padding: 0.5rem 0;
+}
+
 /* Links */
 .link {
     color: var(--accent);
