@@ -1,0 +1,140 @@
+/* Resume-specific styles */
+.resume-page {
+    padding: var(--space-xl) var(--space-md);
+    min-height: 80vh;
+    background: var(--bg-primary);
+}
+
+.resume-header {
+    margin-bottom: var(--space-xl);
+    padding-bottom: var(--space-md);
+    border-bottom: 1px solid var(--border);
+}
+
+.resume-header h1 {
+    font-size: 2.5rem;
+    font-weight: 400;
+    margin-bottom: var(--space-xs);
+}
+
+.resume-contact {
+    display: flex;
+    gap: var(--space-sm);
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    flex-wrap: wrap;
+}
+
+.resume-contact a {
+    color: var(--accent);
+    text-decoration: none;
+}
+
+.resume-contact a:hover {
+    color: var(--accent-hover);
+}
+
+.resume-section {
+    margin-bottom: var(--space-xl);
+}
+
+.resume-section h2 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: var(--space-md);
+    color: var(--text-primary);
+}
+
+.resume-item {
+    margin-bottom: var(--space-lg);
+}
+
+.resume-item-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: var(--space-sm);
+    gap: var(--space-md);
+}
+
+.resume-item h3 {
+    font-size: 1.15rem;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+}
+
+.company {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.resume-date {
+    text-align: right;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+.resume-location {
+    display: block;
+    font-size: 0.85rem;
+    margin-top: 0.25rem;
+}
+
+.resume-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+.resume-list li {
+    padding-left: 1.25rem;
+    position: relative;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+    line-height: 1.7;
+}
+
+.resume-list li::before {
+    content: '–';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-md);
+}
+
+.skills-grid h4 {
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-bottom: var(--space-xs);
+    color: var(--text-primary);
+}
+
+.skills-grid p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .resume-header h1 {
+        font-size: 2rem;
+    }
+
+    .resume-item-header {
+        flex-direction: column;
+        gap: var(--space-xs);
+    }
+
+    .resume-date {
+        text-align: left;
+    }
+
+    .resume-contact {
+        font-size: 0.85rem;
+    }
+}
