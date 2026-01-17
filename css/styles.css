@@ -265,26 +265,32 @@ body {
 }
 
 /* Work CTA Banner */
+.work-cta-section {
+    background: var(--bg-secondary);
+    padding: 4rem 1.5rem;
+}
+
 .work-cta {
     background: linear-gradient(135deg, var(--accent) 0%, var(--accent-cool) 100%);
-    padding: 2.5rem 2rem;
+    padding: 3rem 2rem;
     border-radius: 4px;
     text-align: center;
-    margin-bottom: 3rem;
-    box-shadow: 0 4px 20px rgba(217, 133, 85, 0.15);
+    box-shadow: 0 8px 30px rgba(217, 133, 85, 0.2);
+    max-width: 700px;
+    margin: 0 auto;
 }
 
 .work-cta h3 {
-    font-size: 1.75rem;
+    font-size: 1.85rem;
     font-weight: 500;
     color: white;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
 }
 
 .work-cta p {
-    font-size: 1.05rem;
+    font-size: 1.1rem;
     color: rgba(255, 255, 255, 0.95);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.75rem;
 }
 
 .cta-button {
@@ -307,8 +313,10 @@ body {
 
 /* Page Hero (for work.html, etc) */
 .page-hero {
-    padding: 8rem 1.5rem 4rem;
+    padding: 6rem 1.5rem 3rem;
     text-align: center;
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border);
 }
 
 .page-hero h1 {
@@ -327,8 +335,8 @@ body {
 
 /* Featured Project Section */
 .featured-project-section {
-    background: var(--bg-secondary);
-    padding: 4rem 1.5rem;
+    background: var(--bg-primary);
+    padding: 5rem 1.5rem;
 }
 
 .featured-project {
@@ -446,6 +454,12 @@ body {
     color: var(--text-secondary);
     font-size: 0.9rem;
     font-weight: 600;
+}
+
+/* Other Projects Section */
+.other-projects-section {
+    background: var(--bg-secondary);
+    padding: 5rem 1.5rem;
 }
 
 /* Active nav link */
@@ -654,11 +668,23 @@ body {
     }
 
     .page-hero {
-        padding: 6rem 1.25rem 3rem;
+        padding: 5rem 1.25rem 2.5rem;
     }
 
     .page-hero h1 {
         font-size: 2.5rem;
+    }
+
+    .work-cta-section {
+        padding: 3rem 1.25rem;
+    }
+
+    .other-projects-section {
+        padding: 4rem 1.25rem;
+    }
+
+    .featured-project-section {
+        padding: 4rem 1.25rem;
     }
 }
 
@@ -756,7 +782,7 @@ body {
     }
 
     .page-hero {
-        padding: 5rem 1rem 2.5rem;
+        padding: 4rem 1rem 2rem;
     }
 
     .page-hero h1 {
@@ -777,5 +803,25 @@ body {
 
     .detail-block {
         margin-bottom: 2rem;
+    }
+
+    .work-cta-section {
+        padding: 2.5rem 1rem;
+    }
+
+    .work-cta {
+        padding: 2rem 1.25rem;
+    }
+
+    .work-cta h3 {
+        font-size: 1.4rem;
+    }
+
+    .other-projects-section {
+        padding: 3rem 1rem;
+    }
+
+    .featured-project-section {
+        padding: 3rem 1rem;
     }
 }
