@@ -1,12 +1,12 @@
 /* Art page styles */
 .art-page {
-    padding: 5rem 1.5rem;
+    padding: var(--space-xl) var(--space-md);
     min-height: 80vh;
     background: var(--bg-primary);
 }
 
 .page-header {
-    margin-bottom: 4rem;
+    margin-bottom: var(--space-xl);
     max-width: 900px;
 }
 
@@ -20,14 +20,14 @@
 .art-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 3rem;
+    gap: var(--space-lg);
     max-width: 1200px;
 }
 
 .art-item {
     display: flex;
     flex-direction: column;
-    gap: 1rem;
+    gap: var(--space-sm);
 }
 
 .art-image {
@@ -124,21 +124,17 @@
 
 /* Responsive */
 @media (max-width: 768px) {
-    .art-page {
-        padding: 3rem 1.25rem;
-    }
-
     .page-header h1 {
         font-size: 2rem;
     }
 
     .art-grid {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: var(--space-md);
     }
 
     .lightbox {
-        padding: 1rem;
+        padding: var(--space-sm);
     }
 
     .lightbox-close {
@@ -148,19 +144,11 @@
 }
 
 @media (max-width: 480px) {
-    .art-page {
-        padding: 2.5rem 1rem;
-    }
-
-    .page-header {
-        margin-bottom: 2.5rem;
-    }
-
     .page-header h1 {
         font-size: 1.75rem;
     }
 
     .art-grid {
-        gap: 1.5rem;
+        gap: var(--space-md);
     }
 }
