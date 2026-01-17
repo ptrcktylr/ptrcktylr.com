@@ -1,0 +1,1958 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BuildRight NZ | Auckland's Most Reliable Renovation Specialists</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        /* ========================================
+           CSS VARIABLES - Easy Theming
+        ======================================== */
+        :root {
+            /* Colors - Dark Mode (Default) */
+            --charcoal: #1a1d21;
+            --slate: #2d3138;
+            --slate-light: #3d424a;
+            --safety-orange: #FF5722;
+            --safety-orange-dark: #E64A19;
+            --safety-orange-glow: rgba(255, 87, 34, 0.3);
+            --white: #ffffff;
+            --off-white: #f5f5f5;
+            --grey-text: #9ca3af;
+            --grey-border: rgba(255, 255, 255, 0.1);
+            
+            /* Typography */
+            --font-heading: 'Oswald', sans-serif;
+            --font-body: 'Source Sans 3', sans-serif;
+            
+            /* Spacing */
+            --section-padding: clamp(60px, 10vw, 120px);
+            --container-max: 1200px;
+            
+            /* Transitions */
+            --transition-fast: 0.2s ease;
+            --transition-medium: 0.3s ease;
+            --transition-slow: 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        /* Light Mode Variables */
+        [data-theme="light"] {
+            --charcoal: #f8f9fa;
+            --slate: #ffffff;
+            --slate-light: #e9ecef;
+            --white: #1a1d21;
+            --off-white: #2d3138;
+            --grey-text: #6b7280;
+            --grey-border: rgba(0, 0, 0, 0.1);
+            --safety-orange-glow: rgba(255, 87, 34, 0.2);
+        }
+
+        /* Theme Toggle Button */
+        .theme-toggle {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            width: 56px;
+            height: 56px;
+            border-radius: 50%;
+            background: var(--slate);
+            border: 2px solid var(--grey-border);
+            cursor: pointer;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            transition: all var(--transition-medium);
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            border-color: var(--safety-orange);
+            box-shadow: 0 6px 25px var(--safety-orange-glow);
+        }
+
+        .theme-toggle svg {
+            width: 24px;
+            height: 24px;
+            fill: var(--safety-orange);
+            transition: transform var(--transition-medium);
+        }
+
+        .theme-toggle:hover svg {
+            transform: rotate(15deg);
+        }
+
+        .theme-toggle .sun-icon {
+            display: none;
+        }
+
+        .theme-toggle .moon-icon {
+            display: block;
+        }
+
+        [data-theme="light"] .theme-toggle .sun-icon {
+            display: block;
+        }
+
+        [data-theme="light"] .theme-toggle .moon-icon {
+            display: none;
+        }
+
+        /* Light mode specific overrides */
+        [data-theme="light"] .header {
+            background: rgba(248, 249, 250, 0.95);
+        }
+
+        [data-theme="light"] .hero-overlay {
+            background: linear-gradient(
+                135deg,
+                rgba(248, 249, 250, 0.95) 0%,
+                rgba(248, 249, 250, 0.85) 50%,
+                rgba(248, 249, 250, 0.75) 100%
+            );
+        }
+
+        [data-theme="light"] .hero::before {
+            background: linear-gradient(135deg, transparent 40%, rgba(255, 87, 34, 0.15) 100%);
+        }
+
+        [data-theme="light"] .hero-badge {
+            background: rgba(255, 87, 34, 0.1);
+            border-color: rgba(255, 87, 34, 0.2);
+        }
+
+        [data-theme="light"] .btn-primary {
+            color: #ffffff;
+        }
+
+        [data-theme="light"] .comparison-slider::before {
+            color: #ffffff;
+        }
+
+        [data-theme="light"] .comparison-before::before {
+            background: var(--off-white);
+            color: #ffffff;
+        }
+
+        [data-theme="light"] .trust-logo-icon svg {
+            fill: var(--safety-orange);
+        }
+
+        [data-theme="light"] .review-text {
+            color: var(--off-white);
+        }
+
+        [data-theme="light"] .footer-contact-item svg {
+            fill: var(--safety-orange);
+        }
+
+        /* ========================================
+           RESET & BASE STYLES
+        ======================================== */
+        *, *::before, *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-body);
+            font-size: 16px;
+            line-height: 1.6;
+            color: var(--white);
+            background-color: var(--charcoal);
+            overflow-x: hidden;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* ========================================
+           UTILITY CLASSES
+        ======================================== */
+        .container {
+            width: 100%;
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* Reveal Animation Base */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ========================================
+           BUTTONS
+        ======================================== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-family: var(--font-heading);
+            font-weight: 600;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            padding: 14px 28px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all var(--transition-medium);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary {
+            background: var(--safety-orange);
+            color: var(--white);
+            box-shadow: 0 4px 15px var(--safety-orange-glow);
+        }
+
+        .btn-primary:hover {
+            background: var(--safety-orange-dark);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px var(--safety-orange-glow);
+        }
+
+        .btn-primary:active {
+            transform: translateY(-1px);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            border: 2px solid var(--grey-border);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--safety-orange);
+            color: var(--safety-orange);
+            transform: translateY(-2px);
+        }
+
+        .btn-large {
+            padding: 18px 36px;
+            font-size: 1.1rem;
+        }
+
+        /* ========================================
+           HEADER
+        ======================================== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(26, 29, 33, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--grey-border);
+            transition: all var(--transition-medium);
+        }
+
+        .header.scrolled {
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 20px;
+            max-width: var(--container-max);
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--safety-orange);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--white);
+        }
+
+        .logo-text {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.02em;
+        }
+
+        .logo-text span {
+            color: var(--safety-orange);
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .nav-link {
+            font-family: var(--font-heading);
+            font-size: 0.95rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--grey-text);
+            transition: color var(--transition-fast);
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--safety-orange);
+            transition: width var(--transition-medium);
+        }
+
+        .nav-link:hover {
+            color: var(--white);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .header-cta {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .header-cta .btn {
+            white-space: nowrap;
+        }
+
+        .phone-icon {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* Mobile Menu Toggle */
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .mobile-toggle span {
+            width: 25px;
+            height: 3px;
+            background: var(--white);
+            border-radius: 2px;
+            transition: all var(--transition-medium);
+        }
+
+        /* ========================================
+           HERO SECTION
+        ======================================== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            padding: 120px 0 80px;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: -2;
+        }
+
+        .hero-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(
+                135deg,
+                rgba(26, 29, 33, 0.95) 0%,
+                rgba(26, 29, 33, 0.8) 50%,
+                rgba(26, 29, 33, 0.7) 100%
+            );
+            z-index: -1;
+        }
+
+        /* Diagonal accent stripe */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 40%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent 40%, var(--safety-orange-glow) 100%);
+            z-index: -1;
+            opacity: 0.5;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text {
+            max-width: 600px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 87, 34, 0.15);
+            border: 1px solid rgba(255, 87, 34, 0.3);
+            padding: 8px 16px;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--safety-orange);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 24px;
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 0 0 var(--safety-orange-glow); }
+            50% { box-shadow: 0 0 20px 5px var(--safety-orange-glow); }
+        }
+
+        .hero-badge::before {
+            content: '';
+            width: 8px;
+            height: 8px;
+            background: var(--safety-orange);
+            border-radius: 50%;
+            animation: blink 1.5s ease-in-out infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .hero-title {
+            font-family: var(--font-heading);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            line-height: 1.1;
+            text-transform: uppercase;
+            margin-bottom: 20px;
+        }
+
+        .hero-title span {
+            color: var(--safety-orange);
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            color: var(--grey-text);
+            margin-bottom: 32px;
+            max-width: 500px;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            padding-top: 32px;
+            border-top: 1px solid var(--grey-border);
+        }
+
+        .stat {
+            text-align: left;
+        }
+
+        .stat-number {
+            font-family: var(--font-heading);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--safety-orange);
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--grey-text);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Quote Form */
+        .hero-form-wrapper {
+            background: var(--slate);
+            border-radius: 12px;
+            padding: 40px;
+            border: 1px solid var(--grey-border);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .form-title {
+            font-family: var(--font-heading);
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .form-subtitle {
+            color: var(--grey-text);
+            font-size: 0.95rem;
+        }
+
+        .quote-form {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--grey-text);
+        }
+
+        .form-input,
+        .form-select {
+            background: var(--charcoal);
+            border: 2px solid var(--grey-border);
+            border-radius: 6px;
+            padding: 14px 16px;
+            font-family: var(--font-body);
+            font-size: 1rem;
+            color: var(--white);
+            transition: all var(--transition-fast);
+        }
+
+        .form-input::placeholder {
+            color: var(--grey-text);
+        }
+
+        .form-input:focus,
+        .form-select:focus {
+            outline: none;
+            border-color: var(--safety-orange);
+            box-shadow: 0 0 0 3px var(--safety-orange-glow);
+        }
+
+        .form-select {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%239ca3af' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 12px center;
+            background-size: 20px;
+            cursor: pointer;
+        }
+
+        .form-select option {
+            background: var(--charcoal);
+            color: var(--white);
+        }
+
+        .form-submit {
+            margin-top: 10px;
+        }
+
+        .form-privacy {
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--grey-text);
+        }
+
+        /* ========================================
+           BEFORE/AFTER SLIDER SECTION
+        ======================================== */
+        .proof-section {
+            padding: var(--section-padding) 0;
+            background: var(--slate);
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .section-eyebrow {
+            display: inline-block;
+            font-family: var(--font-heading);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--safety-orange);
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-family: var(--font-heading);
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 700;
+            text-transform: uppercase;
+            line-height: 1.1;
+            margin-bottom: 16px;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--grey-text);
+        }
+
+        /* Before/After Slider */
+        .comparison-slider {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+            cursor: ew-resize;
+            user-select: none;
+        }
+
+        .comparison-after {
+            position: relative;
+            z-index: 1;
+        }
+
+        .comparison-after::before {
+            content: 'AFTER';
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--safety-orange);
+            color: #ffffff;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-family: var(--font-heading);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            z-index: 5;
+        }
+
+        .comparison-before {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 2;
+        }
+
+        .comparison-before::before {
+            content: 'BEFORE';
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: #1a1d21;
+            color: #ffffff;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-family: var(--font-heading);
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            z-index: 10;
+        }
+
+        .comparison-after img {
+            width: 100%;
+            display: block;
+            aspect-ratio: 16/10;
+            object-fit: cover;
+        }
+
+        .comparison-before img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: auto;
+            min-width: 100%;
+            max-width: none;
+            object-fit: cover;
+        }
+
+        .comparison-handle {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            width: 4px;
+            background: var(--white);
+            z-index: 3;
+            transform: translateX(-50%);
+            cursor: ew-resize;
+        }
+
+        .comparison-handle::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 50px;
+            height: 50px;
+            background: var(--white);
+            border-radius: 50%;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .comparison-handle::after {
+            content: '‹ ›';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family: var(--font-heading);
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--charcoal);
+            letter-spacing: 4px;
+            z-index: 4;
+        }
+
+        .slider-hint {
+            text-align: center;
+            margin-top: 20px;
+            color: var(--grey-text);
+            font-size: 0.9rem;
+        }
+
+        .slider-hint svg {
+            width: 20px;
+            height: 20px;
+            vertical-align: middle;
+            margin-right: 8px;
+            animation: slide-hint 1.5s ease-in-out infinite;
+        }
+
+        @keyframes slide-hint {
+            0%, 100% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+        }
+
+        /* ========================================
+           SERVICES SECTION
+        ======================================== */
+        .services-section {
+            padding: var(--section-padding) 0;
+            background: var(--charcoal);
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--slate);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--grey-border);
+            transition: all var(--transition-medium);
+            cursor: pointer;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--safety-orange);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3), 0 0 0 1px var(--safety-orange);
+        }
+
+        .service-image {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--transition-slow);
+            transform-origin: center center;
+            /* Prevent subpixel rendering issues */
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+
+        .service-card:hover .service-image img {
+            transform: scale(1.1);
+        }
+
+        /* Remove the gradient overlay - it was causing the line issue */
+
+        .service-content {
+            padding: 24px;
+        }
+
+        .service-title {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .service-title::before {
+            content: '';
+            width: 4px;
+            height: 20px;
+            background: var(--safety-orange);
+            border-radius: 2px;
+        }
+
+        .service-description {
+            color: var(--grey-text);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+
+        .service-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-family: var(--font-heading);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--safety-orange);
+            transition: gap var(--transition-fast);
+        }
+
+        .service-card:hover .service-link {
+            gap: 12px;
+        }
+
+        .service-link svg {
+            width: 16px;
+            height: 16px;
+            transition: transform var(--transition-fast);
+        }
+
+        .service-card:hover .service-link svg {
+            transform: translateX(4px);
+        }
+
+        /* ========================================
+           TRUST BAR SECTION
+        ======================================== */
+        .trust-section {
+            padding: 60px 0;
+            background: var(--slate);
+            border-top: 1px solid var(--grey-border);
+            border-bottom: 1px solid var(--grey-border);
+        }
+
+        .trust-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .trust-logos {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-evenly;
+            gap: 30px 20px;
+            width: 100%;
+        }
+
+        .trust-logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            opacity: 0.7;
+            transition: opacity var(--transition-fast);
+        }
+
+        .trust-logo:hover {
+            opacity: 1;
+        }
+
+        .trust-logo-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--charcoal);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid var(--grey-border);
+        }
+
+        .trust-logo-icon svg {
+            width: 32px;
+            height: 32px;
+            fill: var(--safety-orange);
+        }
+
+        .trust-logo-text {
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--grey-text);
+            text-align: center;
+        }
+
+        .trust-review {
+            max-width: 400px;
+            padding: 24px;
+            background: var(--charcoal);
+            border-radius: 12px;
+            border-left: 4px solid var(--safety-orange);
+        }
+
+        .review-stars {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 12px;
+        }
+
+        .review-stars svg {
+            width: 20px;
+            height: 20px;
+            fill: #FFB800;
+        }
+
+        .review-text {
+            font-style: italic;
+            color: var(--off-white);
+            margin-bottom: 12px;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .review-author {
+            font-family: var(--font-heading);
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: var(--grey-text);
+        }
+
+        .review-author span {
+            color: var(--safety-orange);
+        }
+
+        /* ========================================
+           FOOTER
+        ======================================== */
+        .footer {
+            padding: 60px 0 30px;
+            background: var(--charcoal);
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid var(--grey-border);
+        }
+
+        .footer-brand {
+            max-width: 300px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 16px;
+        }
+
+        .footer-logo-icon {
+            width: 36px;
+            height: 36px;
+            background: var(--safety-orange);
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .footer-logo-text {
+            font-family: var(--font-heading);
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .footer-logo-text span {
+            color: var(--safety-orange);
+        }
+
+        .footer-tagline {
+            color: var(--grey-text);
+            font-size: 0.95rem;
+        }
+
+        .footer-column h4 {
+            font-family: var(--font-heading);
+            font-size: 1rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .footer-link {
+            color: var(--grey-text);
+            font-size: 0.95rem;
+            transition: color var(--transition-fast);
+        }
+
+        .footer-link:hover {
+            color: var(--safety-orange);
+        }
+
+        .footer-contact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 16px;
+            color: var(--grey-text);
+        }
+
+        .footer-contact-item svg {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+            fill: var(--safety-orange);
+            margin-top: 2px;
+        }
+
+        .footer-contact-item a {
+            color: var(--grey-text);
+            transition: color var(--transition-fast);
+        }
+
+        .footer-contact-item a:hover {
+            color: var(--safety-orange);
+        }
+
+        .footer-bottom {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            padding-top: 30px;
+        }
+
+        .footer-copyright {
+            color: var(--grey-text);
+            font-size: 0.9rem;
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 24px;
+        }
+
+        .footer-legal a {
+            color: var(--grey-text);
+            font-size: 0.9rem;
+            transition: color var(--transition-fast);
+        }
+
+        .footer-legal a:hover {
+            color: var(--safety-orange);
+        }
+
+        /* ========================================
+           RESPONSIVE STYLES
+        ======================================== */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .hero-text {
+                text-align: center;
+                margin: 0 auto;
+            }
+
+            .hero-subtitle {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .hero-form-wrapper {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+        }
+
+        @media (max-width: 900px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-toggle {
+                display: flex;
+            }
+
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .trust-review {
+                text-align: left;
+                max-width: 100%;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-cta .btn span {
+                display: none;
+            }
+
+            .header-cta .btn {
+                padding: 12px;
+            }
+
+            .hero {
+                padding: 100px 0 60px;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                align-items: center;
+                gap: 20px;
+            }
+
+            .stat {
+                text-align: center;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .footer-brand {
+                margin: 0 auto;
+            }
+
+            .footer-links {
+                align-items: center;
+            }
+
+            .footer-contact-item {
+                justify-content: center;
+            }
+
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2rem;
+            }
+
+            .hero-form-wrapper {
+                padding: 24px;
+            }
+
+            .comparison-handle::before {
+                width: 40px;
+                height: 40px;
+            }
+
+            .section-title {
+                font-size: 1.75rem;
+            }
+        }
+
+        /* ========================================
+           MOBILE NAV OVERLAY
+        ======================================== */
+        .mobile-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(26, 29, 33, 0.98);
+            z-index: 999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 30px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all var(--transition-medium);
+        }
+
+        .mobile-nav.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .mobile-nav-link {
+            font-family: var(--font-heading);
+            font-size: 2rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: var(--white);
+            transition: color var(--transition-fast);
+        }
+
+        .mobile-nav-link:hover {
+            color: var(--safety-orange);
+        }
+
+        .mobile-nav-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 2rem;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">
+        <svg class="moon-icon" viewBox="0 0 24 24">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+        <svg class="sun-icon" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="5"/>
+            <line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+    </button>
+
+    <!-- ========================================
+         HEADER
+    ======================================== -->
+    <header class="header" id="header">
+        <div class="header-inner">
+            <a href="#" class="logo">
+                <div class="logo-icon">BR</div>
+                <div class="logo-text">Build<span>Right</span> NZ</div>
+            </a>
+            
+            <nav class="nav">
+                <ul class="nav-links">
+                    <li><a href="#services" class="nav-link">Services</a></li>
+                    <li><a href="#proof" class="nav-link">Our Work</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+                
+                <div class="header-cta">
+                    <a href="tel:+6495551234" class="btn btn-primary">
+                        <svg class="phone-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                        </svg>
+                        <span>Call Now</span>
+                    </a>
+                </div>
+                
+                <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Nav Overlay -->
+    <nav class="mobile-nav" id="mobileNav">
+        <button class="mobile-nav-close" id="mobileClose" aria-label="Close menu">&times;</button>
+        <a href="#services" class="mobile-nav-link">Services</a>
+        <a href="#proof" class="mobile-nav-link">Our Work</a>
+        <a href="#about" class="mobile-nav-link">About</a>
+        <a href="#contact" class="mobile-nav-link">Contact</a>
+        <a href="tel:+6495551234" class="btn btn-primary btn-large">Call Now</a>
+    </nav>
+
+    <!-- ========================================
+         HERO SECTION
+    ======================================== -->
+    <section class="hero" id="home">
+        <div class="hero-bg">
+            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&q=80" alt="Construction site" loading="eager">
+        </div>
+        <div class="hero-overlay"></div>
+        
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="hero-badge">
+                        Licensed Building Practitioners
+                    </div>
+                    <h1 class="hero-title">
+                        Auckland's Most <span>Reliable</span> Renovation Specialists
+                    </h1>
+                    <p class="hero-subtitle">
+                        On time, on budget, and no mess left behind. Serving the North Shore to Manukau.
+                    </p>
+                    <div class="hero-stats">
+                        <div class="stat">
+                            <div class="stat-number">15+</div>
+                            <div class="stat-label">Years Experience</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">500+</div>
+                            <div class="stat-label">Projects Completed</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">Satisfaction Rate</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="hero-form-wrapper">
+                    <div class="form-header">
+                        <h2 class="form-title">Get a Quick Quote</h2>
+                        <p class="form-subtitle">Free consultation • No obligation</p>
+                    </div>
+                    <form class="quote-form" id="quoteForm">
+                        <div class="form-group">
+                            <label class="form-label" for="name">Your Name</label>
+                            <input type="text" id="name" name="name" class="form-input" placeholder="John Smith" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" class="form-input" placeholder="021 123 4567" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="project">Project Type</label>
+                            <select id="project" name="project" class="form-select" required>
+                                <option value="" disabled selected>Select your project</option>
+                                <option value="deck">Deck Build / Repair</option>
+                                <option value="kitchen">Kitchen Renovation</option>
+                                <option value="bathroom">Bathroom Renovation</option>
+                                <option value="extension">Home Extension</option>
+                                <option value="other">Other / Not Sure</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-large form-submit">
+                            Get My Free Quote
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </button>
+                        <p class="form-privacy">Your information is secure and will never be shared.</p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         BEFORE/AFTER PROOF SECTION
+    ======================================== -->
+    <section class="proof-section" id="proof">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-eyebrow">See The Difference</span>
+                <h2 class="section-title">Transformations That Speak For Themselves</h2>
+                <p class="section-subtitle">Drag the slider to reveal the stunning before and after of our recent kitchen renovation in Remuera.</p>
+            </div>
+            
+            <div class="comparison-slider reveal" id="comparisonSlider">
+                <div class="comparison-before" id="comparisonBefore">
+                    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&q=80" alt="Kitchen before renovation">
+                </div>
+                <div class="comparison-after">
+                    <img src="https://images.unsplash.com/photo-1556909114-44e3e70034e2?w=1200&q=80" alt="Kitchen after renovation">
+                </div>
+                <div class="comparison-handle" id="comparisonHandle"></div>
+            </div>
+            
+            <p class="slider-hint">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                </svg>
+                Drag the handle to compare before and after
+            </p>
+        </div>
+    </section>
+
+    <!-- ========================================
+         SERVICES SECTION
+    ======================================== -->
+    <section class="services-section" id="services">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-eyebrow">What We Do</span>
+                <h2 class="section-title">Expert Renovation Services</h2>
+                <p class="section-subtitle">From concept to completion, we handle every aspect of your renovation with precision and care.</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card reveal">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1591825729269-caeb344f6df2?w=600&q=80" alt="Deck construction" loading="lazy">
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Decks & Outdoor</h3>
+                        <p class="service-description">Custom-built decks using premium hardwood and composite materials. Designed to withstand Auckland's climate while looking stunning year-round.</p>
+                        <a href="#contact" class="service-link">
+                            Learn More
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="service-card reveal">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80" alt="Kitchen renovation" loading="lazy">
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Kitchens</h3>
+                        <p class="service-description">Complete kitchen transformations from layout redesign to final finishing touches. We work with top NZ suppliers for cabinetry and appliances.</p>
+                        <a href="#contact" class="service-link">
+                            Learn More
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="service-card reveal">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600&q=80" alt="Bathroom renovation" loading="lazy">
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Bathrooms</h3>
+                        <p class="service-description">Luxury bathroom renovations with expert waterproofing and tiling. From modern minimalist to classic elegance, we bring your vision to life.</p>
+                        <a href="#contact" class="service-link">
+                            Learn More
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="service-card reveal">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&q=80" alt="Home extension" loading="lazy">
+                    </div>
+                    <div class="service-content">
+                        <h3 class="service-title">Extensions</h3>
+                        <p class="service-description">Seamless home extensions that add value and space. We handle council consents, structural work, and finishing to create a cohesive result.</p>
+                        <a href="#contact" class="service-link">
+                            Learn More
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         TRUST BAR SECTION
+    ======================================== -->
+    <section class="trust-section" id="about">
+        <div class="container">
+            <div class="trust-content">
+                <div class="trust-logos">
+                    <div class="trust-logo">
+                        <div class="trust-logo-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                            </svg>
+                        </div>
+                        <span class="trust-logo-text">Master Builders<br>Member</span>
+                    </div>
+                    
+                    <div class="trust-logo">
+                        <div class="trust-logo-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                            </svg>
+                        </div>
+                        <span class="trust-logo-text">Licensed Building<br>Practitioner</span>
+                    </div>
+                    
+                    <div class="trust-logo">
+                        <div class="trust-logo-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+                            </svg>
+                        </div>
+                        <span class="trust-logo-text">Site Safe<br>Certified</span>
+                    </div>
+                    
+                    <div class="trust-logo">
+                        <div class="trust-logo-icon">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                            </svg>
+                        </div>
+                        <span class="trust-logo-text">10 Year<br>Guarantee</span>
+                    </div>
+                </div>
+                
+                <div class="trust-review">
+                    <div class="review-stars">
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                    </div>
+                    <p class="review-text">"BuildRight transformed our tired 1970s kitchen into a stunning modern space. They were professional, tidy, and finished ahead of schedule. Couldn't recommend them more highly!"</p>
+                    <p class="review-author">— Sarah & Mike T. <span>• Remuera</span></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================================
+         FOOTER
+    ======================================== -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="footer-logo-icon">BR</div>
+                        <div class="footer-logo-text">Build<span>Right</span> NZ</div>
+                    </div>
+                    <p class="footer-tagline">Auckland's most reliable renovation specialists. On time, on budget, no mess left behind.</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Service Areas</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Ponsonby</a></li>
+                        <li><a href="#" class="footer-link">Mt Eden</a></li>
+                        <li><a href="#" class="footer-link">Remuera</a></li>
+                        <li><a href="#" class="footer-link">Epsom</a></li>
+                        <li><a href="#" class="footer-link">Grey Lynn</a></li>
+                        <li><a href="#" class="footer-link">North Shore</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#services" class="footer-link">Deck Building</a></li>
+                        <li><a href="#services" class="footer-link">Kitchen Renovations</a></li>
+                        <li><a href="#services" class="footer-link">Bathroom Renovations</a></li>
+                        <li><a href="#services" class="footer-link">Home Extensions</a></li>
+                        <li><a href="#services" class="footer-link">General Repairs</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h4>Contact Us</h4>
+                    <div class="footer-contact-item">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                        </svg>
+                        <a href="tel:+6495551234">09 555 1234</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
+                        <a href="mailto:info@buildrightnz.co.nz">info@buildrightnz.co.nz</a>
+                    </div>
+                    <div class="footer-contact-item">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                            <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                        </svg>
+                        <span>Serving all of Auckland</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="footer-copyright">&copy; 2025 BuildRight NZ Ltd. All rights reserved. NZBN: 123456789</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ========================================
+         JAVASCRIPT
+    ======================================== -->
+    <script>
+        // ========================================
+        // Theme Toggle (Light/Dark Mode)
+        // ========================================
+        const themeToggle = document.getElementById('themeToggle');
+        const html = document.documentElement;
+
+        // Check for saved theme preference or default to dark
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        if (savedTheme === 'light') {
+            html.setAttribute('data-theme', 'light');
+        }
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = html.getAttribute('data-theme');
+            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+            
+            html.setAttribute('data-theme', newTheme === 'light' ? 'light' : '');
+            if (newTheme === 'dark') {
+                html.removeAttribute('data-theme');
+            }
+            
+            localStorage.setItem('theme', newTheme);
+        });
+
+        // ========================================
+        // Header Scroll Effect
+        // ========================================
+        const header = document.getElementById('header');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        // ========================================
+        // Mobile Navigation
+        // ========================================
+        const mobileToggle = document.getElementById('mobileToggle');
+        const mobileNav = document.getElementById('mobileNav');
+        const mobileClose = document.getElementById('mobileClose');
+        const mobileLinks = document.querySelectorAll('.mobile-nav-link');
+
+        mobileToggle.addEventListener('click', () => {
+            mobileNav.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        });
+
+        mobileClose.addEventListener('click', () => {
+            mobileNav.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileNav.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+
+        // ========================================
+        // Before/After Comparison Slider
+        // ========================================
+        const slider = document.getElementById('comparisonSlider');
+        const before = document.getElementById('comparisonBefore');
+        const beforeImg = before.querySelector('img');
+        const handle = document.getElementById('comparisonHandle');
+
+        let isDragging = false;
+
+        // Set the before image width to match slider width
+        function updateBeforeImageWidth() {
+            const sliderWidth = slider.offsetWidth;
+            beforeImg.style.width = sliderWidth + 'px';
+        }
+
+        // Initial setup
+        updateBeforeImageWidth();
+        window.addEventListener('resize', updateBeforeImageWidth);
+
+        function setSliderPosition(percentage) {
+            // Clamp between 5% and 95%
+            percentage = Math.max(5, Math.min(95, percentage));
+            before.style.width = percentage + '%';
+            handle.style.left = percentage + '%';
+        }
+
+        function getPercentage(e) {
+            const rect = slider.getBoundingClientRect();
+            const x = (e.touches ? e.touches[0].clientX : e.clientX) - rect.left;
+            return (x / rect.width) * 100;
+        }
+
+        // Mouse events
+        slider.addEventListener('mousedown', (e) => {
+            isDragging = true;
+            setSliderPosition(getPercentage(e));
+        });
+
+        document.addEventListener('mousemove', (e) => {
+            if (isDragging) {
+                setSliderPosition(getPercentage(e));
+            }
+        });
+
+        document.addEventListener('mouseup', () => {
+            isDragging = false;
+        });
+
+        // Touch events
+        slider.addEventListener('touchstart', (e) => {
+            isDragging = true;
+            setSliderPosition(getPercentage(e));
+        });
+
+        slider.addEventListener('touchmove', (e) => {
+            if (isDragging) {
+                e.preventDefault();
+                setSliderPosition(getPercentage(e));
+            }
+        });
+
+        slider.addEventListener('touchend', () => {
+            isDragging = false;
+        });
+
+        // ========================================
+        // Scroll Reveal Animations
+        // ========================================
+        const revealElements = document.querySelectorAll('.reveal');
+
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            const revealPoint = 150;
+
+            revealElements.forEach((element, index) => {
+                const elementTop = element.getBoundingClientRect().top;
+
+                if (elementTop < windowHeight - revealPoint) {
+                    // Stagger the animation
+                    setTimeout(() => {
+                        element.classList.add('visible');
+                    }, index * 100);
+                }
+            });
+        };
+
+        // Initial check
+        revealOnScroll();
+
+        // Check on scroll
+        window.addEventListener('scroll', revealOnScroll);
+
+        // ========================================
+        // Form Submission (Demo)
+        // ========================================
+        const quoteForm = document.getElementById('quoteForm');
+
+        quoteForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const formData = new FormData(quoteForm);
+            const name = formData.get('name');
+            
+            // Show success message (in production, this would submit to a server)
+            const submitBtn = quoteForm.querySelector('.form-submit');
+            const originalText = submitBtn.innerHTML;
+            
+            submitBtn.innerHTML = `
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M20 6L9 17l-5-5"/>
+                </svg>
+                Thanks, ${name}!
+            `;
+            submitBtn.style.background = '#22c55e';
+            submitBtn.disabled = true;
+            
+            setTimeout(() => {
+                submitBtn.innerHTML = originalText;
+                submitBtn.style.background = '';
+                submitBtn.disabled = false;
+                quoteForm.reset();
+            }, 3000);
+        });
+
+        // ========================================
+        // Smooth Scroll for Anchor Links
+        // ========================================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 80;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
