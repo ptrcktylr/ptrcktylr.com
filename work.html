@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Work — Patrick Taylor | Web Development Portfolio</title>
+    <meta
+      name="description"
+      content="Custom websites and digital solutions. View my portfolio of web design and development projects."
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body>
+    <nav class="nav">
+      <div class="nav-container">
+        <a href="index.html" class="logo">PT</a>
+        <ul class="nav-links">
+          <li><a href="work.html" class="active">work</a></li>
+          <li><a href="art.html">art</a></li>
+          <li><a href="resume.html">resume</a></li>
+          <li><a href="psych.html">psych</a></li>
+          <li><a href="index.html#about">about</a></li>
+          <li>
+            <button
+              id="theme-toggle"
+              class="theme-toggle"
+              aria-label="Toggle dark mode"
+            >
+              <span class="theme-icon">◐</span>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <main>
+      <section class="page-hero">
+        <div class="container">
+          <h1>Work</h1>
+          <p class="page-subtitle">Custom websites and digital solutions that drive results</p>
+        </div>
+      </section>
+
+      <!-- CTA Banner -->
+      <section class="section">
+        <div class="container">
+          <div class="work-cta">
+            <h3>Need a website that converts?</h3>
+            <p>Let's build something that drives results for your business.</p>
+            <a href="mailto:me@ptrcktylr.com" class="cta-button">Get in Touch</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Featured Project: BuildRight NZ -->
+      <section class="section featured-project-section">
+        <div class="container">
+          <div class="featured-project">
+            <div class="featured-project-header">
+              <div>
+                <h2>BuildRight NZ</h2>
+                <span class="project-tag">Web Design & Development</span>
+              </div>
+              <a href="buildright-nz.html" target="_blank" class="cta-button">View Live Demo</a>
+            </div>
+
+            <div class="featured-project-image">
+              <a href="buildright-nz.html" target="_blank">
+                <img src="images/projects/placeholder.svg" alt="BuildRight NZ website screenshot" loading="lazy">
+              </a>
+            </div>
+
+            <div class="featured-project-content">
+              <div class="featured-project-details">
+                <div class="detail-block">
+                  <h3>The Challenge</h3>
+                  <p>A construction company in Auckland needed a modern web presence to attract homeowners and showcase their renovation work. They wanted to stand out in a competitive market and make it easy for potential clients to request quotes.</p>
+                </div>
+
+                <div class="detail-block">
+                  <h3>The Solution</h3>
+                  <p>Built a conversion-focused landing page featuring:</p>
+                  <ul>
+                    <li>Interactive before/after slider to showcase transformations</li>
+                    <li>Instant quote form with project type selection</li>
+                    <li>Dark/light mode toggle for user preference</li>
+                    <li>Fully responsive design optimized for mobile</li>
+                    <li>Performance-optimized with fast load times</li>
+                  </ul>
+                </div>
+
+                <div class="detail-block">
+                  <h3>Technologies</h3>
+                  <p class="tech-stack">HTML5, CSS3, Vanilla JavaScript, Responsive Design</p>
+                </div>
+              </div>
+
+              <div class="featured-project-testimonial">
+                <blockquote>
+                  "Professional, modern design that perfectly represents our brand. The interactive features really help showcase our transformations to potential clients."
+                </blockquote>
+                <cite>— BuildRight NZ Team</cite>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Other Projects -->
+      <section class="section">
+        <div class="container">
+          <h2 class="section-title">More Projects</h2>
+          <div class="projects-grid">
+            <div class="project-card">
+              <div class="project-header">
+                <h3>Portfolio Sites</h3>
+                <span class="project-tag">Web Dev</span>
+              </div>
+              <p class="project-description">
+                Custom static websites with responsive galleries, dark mode, and
+                optimized performance. Clean code, zero dependencies.
+              </p>
+              <div class="project-links">
+                <a
+                  href="https://margaretbewley.com"
+                  target="_blank"
+                  class="link"
+                  >margaretbewley.com</a
+                >
+              </div>
+            </div>
+
+            <div class="project-card">
+              <div class="project-header">
+                <h3>NYC Median Income Visualization</h3>
+                <span class="project-tag">Data Viz</span>
+              </div>
+              <p class="project-description">
+                Interactive map showing household income data across NYC zip
+                codes from 2011-2018. Built with Python, Bokeh, and Pandas using
+                IRS data.
+              </p>
+              <div class="project-links">
+                <a
+                  href="https://github.com/ptrcktylr/nyc-income"
+                  target="_blank"
+                  class="link"
+                  >GitHub</a
+                >
+                <a
+                  href="https://nyc-income.onrender.com"
+                  target="_blank"
+                  class="link"
+                  >View Live</a
+                >
+              </div>
+            </div>
+
+            <div class="project-card">
+              <div class="project-header">
+                <h3>Splat Issue Tracker</h3>
+                <span class="project-tag">Full Stack</span>
+              </div>
+              <p class="project-description">
+                Ticketing system for developers and project managers. Django
+                backend with PostgreSQL and AWS integration.
+              </p>
+              <div class="project-links">
+                <a
+                  href="https://github.com/ptrcktylr/splat-issue-tracker"
+                  target="_blank"
+                  class="link"
+                  >GitHub</a
+                >
+                <a
+                  href="https://splat-issue-tracker.onrender.com"
+                  target="_blank"
+                  class="link"
+                  >View Live</a
+                >
+              </div>
+            </div>
+
+            <div class="project-card">
+              <div class="project-header">
+                <h3>SentiMental Health</h3>
+                <span class="project-tag">Full Stack</span>
+              </div>
+              <p class="project-description">
+                Mental health journaling platform with sentiment analysis using
+                DeepAI. Patients post entries, track mood progress, and connect
+                with assigned professionals. Built with Java/Spring Boot,
+                Angular, and Gradle.
+              </p>
+              <div class="project-links">
+                <a
+                  href="https://github.com/ptrcktylr/mental-health-app"
+                  target="_blank"
+                  class="link"
+                  >GitHub</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2026 Patrick Taylor</p>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
