@@ -299,7 +299,7 @@
         ======================================== */
         .header {
             position: fixed;
-            top: 0;
+            top: 44px;
             left: 0;
             right: 0;
             z-index: 1000;
@@ -1508,17 +1508,42 @@
                         <h2 class="form-title">Get a Quick Quote</h2>
                         <p class="form-subtitle">Free consultation • No obligation</p>
                     </div>
-                    <!-- Form disabled for portfolio demo -->
-                    <div class="quote-form" style="text-align: center;">
-                        <div
-                            style="background: rgba(255, 87, 34, 0.1); border: 2px dashed rgba(255, 87, 34, 0.4); border-radius: 8px; padding: 30px 20px; margin-bottom: 20px;">
-                            <p style="color: #FF5722; font-weight: 600; margin-bottom: 8px;">📋 Demo Form</p>
-                            <p style="color: #9ca3af; font-size: 0.9rem;">This form is disabled because this is a
-                                portfolio demonstration, not a real business website.</p>
+                    <!-- Form disabled for portfolio demo - does not submit -->
+                    <form class="quote-form" id="quoteForm"
+                        onsubmit="event.preventDefault(); alert('This is a demo form - no data is submitted!')">
+                        <div class="form-group">
+                            <label class="form-label" for="name">Your Name</label>
+                            <input type="text" id="name" name="name" class="form-input" placeholder="John Smith"
+                                disabled style="opacity: 0.7; cursor: not-allowed;">
                         </div>
-                        <p style="color: #9ca3af; font-size: 0.85rem;">Created by <a href="https://ptrcktylr.com"
-                                style="color: #FF5722;">Patrick Taylor</a></p>
-                    </div>
+                        <div class="form-group">
+                            <label class="form-label" for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone" class="form-input" placeholder="021 123 4567"
+                                disabled style="opacity: 0.7; cursor: not-allowed;">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label" for="project">Project Type</label>
+                            <select id="project" name="project" class="form-select" disabled
+                                style="opacity: 0.7; cursor: not-allowed;">
+                                <option value="" disabled selected>Select your project</option>
+                                <option value="deck">Deck Build / Repair</option>
+                                <option value="kitchen">Kitchen Renovation</option>
+                                <option value="bathroom">Bathroom Renovation</option>
+                                <option value="extension">Home Extension</option>
+                                <option value="other">Other / Not Sure</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-large form-submit" disabled
+                            style="opacity: 0.7; cursor: not-allowed;">
+                            Demo Only - Form Disabled
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7" />
+                            </svg>
+                        </button>
+                        <p class="form-privacy" style="color: #FF5722;">⚠️ Portfolio demo - this form does not collect
+                            or submit any data</p>
+                    </form>
                 </div>
             </div>
         </div>
