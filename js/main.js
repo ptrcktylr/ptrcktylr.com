@@ -56,4 +56,16 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 // Initialize on load
 document.addEventListener('DOMContentLoaded', () => {
     new ThemeManager();
+
+    // Silly logo animation on click
+    const logo = document.querySelector('.logo');
+    if (logo) {
+        logo.addEventListener('click', (e) => {
+            // Don't prevent navigation, just add animation
+            logo.classList.remove('animate-jello');
+            // Trigger reflow to restart animation
+            void logo.offsetWidth;
+            logo.classList.add('animate-jello');
+        });
+    }
 });
