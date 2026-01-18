@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BuildRight NZ | Auckland's Most Reliable Renovation Specialists</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Source+Sans+3:wght@400;500;600&display=swap"
+        rel="stylesheet">
     <style>
         /* ========================================
            CSS VARIABLES - Easy Theming
@@ -23,15 +26,15 @@
             --off-white: #f5f5f5;
             --grey-text: #9ca3af;
             --grey-border: rgba(255, 255, 255, 0.1);
-            
+
             /* Typography */
             --font-heading: 'Oswald', sans-serif;
             --font-body: 'Source Sans 3', sans-serif;
-            
+
             /* Spacing */
             --section-padding: clamp(60px, 10vw, 120px);
             --container-max: 1200px;
-            
+
             /* Transitions */
             --transition-fast: 0.2s ease;
             --transition-medium: 0.3s ease;
@@ -108,12 +111,10 @@
         }
 
         [data-theme="light"] .hero-overlay {
-            background: linear-gradient(
-                135deg,
-                rgba(248, 249, 250, 0.95) 0%,
-                rgba(248, 249, 250, 0.85) 50%,
-                rgba(248, 249, 250, 0.75) 100%
-            );
+            background: linear-gradient(135deg,
+                    rgba(248, 249, 250, 0.95) 0%,
+                    rgba(248, 249, 250, 0.85) 50%,
+                    rgba(248, 249, 250, 0.75) 100%);
         }
 
         [data-theme="light"] .hero::before {
@@ -153,7 +154,9 @@
         /* ========================================
            RESET & BASE STYLES
         ======================================== */
-        *, *::before, *::after {
+        *,
+        *::before,
+        *::after {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
@@ -250,7 +253,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
             transition: left 0.5s ease;
         }
 
@@ -459,12 +462,10 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(
-                135deg,
-                rgba(26, 29, 33, 0.95) 0%,
-                rgba(26, 29, 33, 0.8) 50%,
-                rgba(26, 29, 33, 0.7) 100%
-            );
+            background: linear-gradient(135deg,
+                    rgba(26, 29, 33, 0.95) 0%,
+                    rgba(26, 29, 33, 0.8) 50%,
+                    rgba(26, 29, 33, 0.7) 100%);
             z-index: -1;
         }
 
@@ -510,8 +511,15 @@
         }
 
         @keyframes pulse-glow {
-            0%, 100% { box-shadow: 0 0 0 0 var(--safety-orange-glow); }
-            50% { box-shadow: 0 0 20px 5px var(--safety-orange-glow); }
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 var(--safety-orange-glow);
+            }
+
+            50% {
+                box-shadow: 0 0 20px 5px var(--safety-orange-glow);
+            }
         }
 
         .hero-badge::before {
@@ -524,8 +532,15 @@
         }
 
         @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.3; }
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.3;
+            }
         }
 
         .hero-title {
@@ -841,8 +856,15 @@
         }
 
         @keyframes slide-hint {
-            0%, 100% { transform: translateX(-5px); }
-            50% { transform: translateX(5px); }
+
+            0%,
+            100% {
+                transform: translateX(-5px);
+            }
+
+            50% {
+                transform: translateX(5px);
+            }
         }
 
         /* ========================================
@@ -1362,23 +1384,37 @@
         }
     </style>
 </head>
+
 <body>
+
+    <!-- Portfolio Demo Banner -->
+    <div
+        style="position: fixed; top: 0; left: 0; right: 0; z-index: 9999; background: linear-gradient(90deg, #1a1d21, #2d3138); color: #fff; text-align: center; padding: 12px 20px; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 14px; border-bottom: 2px solid #FF5722;">
+        ⚠️ <strong>Portfolio Demo</strong> — This is a fictional website created by <a href="https://ptrcktylr.com"
+            style="color: #FF5722; text-decoration: underline;">Patrick Taylor</a> to showcase web development skills.
+        Not a real business.
+    </div>
+
 
     <!-- Theme Toggle Button -->
     <button class="theme-toggle" id="themeToggle" aria-label="Toggle light/dark mode">
         <svg class="moon-icon" viewBox="0 0 24 24">
-            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
         </svg>
         <svg class="sun-icon" viewBox="0 0 24 24">
-            <circle cx="12" cy="12" r="5"/>
-            <line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            <line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            <line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            <line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="12" cy="12" r="5" />
+            <line x1="12" y1="1" x2="12" y2="3" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            <line x1="12" y1="21" x2="12" y2="23" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" />
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" />
+            <line x1="1" y1="12" x2="3" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            <line x1="21" y1="12" x2="23" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" />
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" />
         </svg>
     </button>
 
@@ -1391,7 +1427,7 @@
                 <div class="logo-icon">BR</div>
                 <div class="logo-text">Build<span>Right</span> NZ</div>
             </a>
-            
+
             <nav class="nav">
                 <ul class="nav-links">
                     <li><a href="#services" class="nav-link">Services</a></li>
@@ -1399,16 +1435,17 @@
                     <li><a href="#about" class="nav-link">About</a></li>
                     <li><a href="#contact" class="nav-link">Contact</a></li>
                 </ul>
-                
+
                 <div class="header-cta">
                     <a href="tel:+6495551234" class="btn btn-primary">
                         <svg class="phone-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                            <path
+                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
                         </svg>
                         <span>Call Now</span>
                     </a>
                 </div>
-                
+
                 <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
                     <span></span>
                     <span></span>
@@ -1433,10 +1470,11 @@
     ======================================== -->
     <section class="hero" id="home">
         <div class="hero-bg">
-            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&q=80" alt="Construction site" loading="eager">
+            <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&q=80" alt="Construction site"
+                loading="eager">
         </div>
         <div class="hero-overlay"></div>
-        
+
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
@@ -1464,40 +1502,23 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <div class="hero-form-wrapper">
                     <div class="form-header">
                         <h2 class="form-title">Get a Quick Quote</h2>
                         <p class="form-subtitle">Free consultation • No obligation</p>
                     </div>
-                    <form class="quote-form" id="quoteForm">
-                        <div class="form-group">
-                            <label class="form-label" for="name">Your Name</label>
-                            <input type="text" id="name" name="name" class="form-input" placeholder="John Smith" required>
+                    <!-- Form disabled for portfolio demo -->
+                    <div class="quote-form" style="text-align: center;">
+                        <div
+                            style="background: rgba(255, 87, 34, 0.1); border: 2px dashed rgba(255, 87, 34, 0.4); border-radius: 8px; padding: 30px 20px; margin-bottom: 20px;">
+                            <p style="color: #FF5722; font-weight: 600; margin-bottom: 8px;">📋 Demo Form</p>
+                            <p style="color: #9ca3af; font-size: 0.9rem;">This form is disabled because this is a
+                                portfolio demonstration, not a real business website.</p>
                         </div>
-                        <div class="form-group">
-                            <label class="form-label" for="phone">Phone Number</label>
-                            <input type="tel" id="phone" name="phone" class="form-input" placeholder="021 123 4567" required>
-                        </div>
-                        <div class="form-group">
-                            <label class="form-label" for="project">Project Type</label>
-                            <select id="project" name="project" class="form-select" required>
-                                <option value="" disabled selected>Select your project</option>
-                                <option value="deck">Deck Build / Repair</option>
-                                <option value="kitchen">Kitchen Renovation</option>
-                                <option value="bathroom">Bathroom Renovation</option>
-                                <option value="extension">Home Extension</option>
-                                <option value="other">Other / Not Sure</option>
-                            </select>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-large form-submit">
-                            Get My Free Quote
-                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M5 12h14M12 5l7 7-7 7"/>
-                            </svg>
-                        </button>
-                        <p class="form-privacy">Your information is secure and will never be shared.</p>
-                    </form>
+                        <p style="color: #9ca3af; font-size: 0.85rem;">Created by <a href="https://ptrcktylr.com"
+                                style="color: #FF5722;">Patrick Taylor</a></p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1511,22 +1532,25 @@
             <div class="section-header reveal">
                 <span class="section-eyebrow">See The Difference</span>
                 <h2 class="section-title">Transformations That Speak For Themselves</h2>
-                <p class="section-subtitle">Drag the slider to reveal the stunning before and after of our recent kitchen renovation in Remuera.</p>
+                <p class="section-subtitle">Drag the slider to reveal the stunning before and after of our recent
+                    kitchen renovation in Remuera.</p>
             </div>
-            
+
             <div class="comparison-slider reveal" id="comparisonSlider">
                 <div class="comparison-before" id="comparisonBefore">
-                    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&q=80" alt="Kitchen before renovation">
+                    <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=1200&q=80"
+                        alt="Kitchen before renovation">
                 </div>
                 <div class="comparison-after">
-                    <img src="https://images.unsplash.com/photo-1556909114-44e3e70034e2?w=1200&q=80" alt="Kitchen after renovation">
+                    <img src="https://images.unsplash.com/photo-1556909114-44e3e70034e2?w=1200&q=80"
+                        alt="Kitchen after renovation">
                 </div>
                 <div class="comparison-handle" id="comparisonHandle"></div>
             </div>
-            
+
             <p class="slider-hint">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M17 8l4 4m0 0l-4 4m4-4H3"/>
+                    <path d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
                 Drag the handle to compare before and after
             </p>
@@ -1541,69 +1565,78 @@
             <div class="section-header reveal">
                 <span class="section-eyebrow">What We Do</span>
                 <h2 class="section-title">Expert Renovation Services</h2>
-                <p class="section-subtitle">From concept to completion, we handle every aspect of your renovation with precision and care.</p>
+                <p class="section-subtitle">From concept to completion, we handle every aspect of your renovation with
+                    precision and care.</p>
             </div>
-            
+
             <div class="services-grid">
                 <div class="service-card reveal">
                     <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1591825729269-caeb344f6df2?w=600&q=80" alt="Deck construction" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1591825729269-caeb344f6df2?w=600&q=80"
+                            alt="Deck construction" loading="lazy">
                     </div>
                     <div class="service-content">
                         <h3 class="service-title">Decks & Outdoor</h3>
-                        <p class="service-description">Custom-built decks using premium hardwood and composite materials. Designed to withstand Auckland's climate while looking stunning year-round.</p>
+                        <p class="service-description">Custom-built decks using premium hardwood and composite
+                            materials. Designed to withstand Auckland's climate while looking stunning year-round.</p>
                         <a href="#contact" class="service-link">
                             Learn More
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                                <path d="M5 12h14M12 5l7 7-7 7" />
                             </svg>
                         </a>
                     </div>
                 </div>
-                
+
                 <div class="service-card reveal">
                     <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80" alt="Kitchen renovation" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=600&q=80"
+                            alt="Kitchen renovation" loading="lazy">
                     </div>
                     <div class="service-content">
                         <h3 class="service-title">Kitchens</h3>
-                        <p class="service-description">Complete kitchen transformations from layout redesign to final finishing touches. We work with top NZ suppliers for cabinetry and appliances.</p>
+                        <p class="service-description">Complete kitchen transformations from layout redesign to final
+                            finishing touches. We work with top NZ suppliers for cabinetry and appliances.</p>
                         <a href="#contact" class="service-link">
                             Learn More
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                                <path d="M5 12h14M12 5l7 7-7 7" />
                             </svg>
                         </a>
                     </div>
                 </div>
-                
+
                 <div class="service-card reveal">
                     <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600&q=80" alt="Bathroom renovation" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=600&q=80"
+                            alt="Bathroom renovation" loading="lazy">
                     </div>
                     <div class="service-content">
                         <h3 class="service-title">Bathrooms</h3>
-                        <p class="service-description">Luxury bathroom renovations with expert waterproofing and tiling. From modern minimalist to classic elegance, we bring your vision to life.</p>
+                        <p class="service-description">Luxury bathroom renovations with expert waterproofing and tiling.
+                            From modern minimalist to classic elegance, we bring your vision to life.</p>
                         <a href="#contact" class="service-link">
                             Learn More
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                                <path d="M5 12h14M12 5l7 7-7 7" />
                             </svg>
                         </a>
                     </div>
                 </div>
-                
+
                 <div class="service-card reveal">
                     <div class="service-image">
-                        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&q=80" alt="Home extension" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&q=80"
+                            alt="Home extension" loading="lazy">
                     </div>
                     <div class="service-content">
                         <h3 class="service-title">Extensions</h3>
-                        <p class="service-description">Seamless home extensions that add value and space. We handle council consents, structural work, and finishing to create a cohesive result.</p>
+                        <p class="service-description">Seamless home extensions that add value and space. We handle
+                            council consents, structural work, and finishing to create a cohesive result.</p>
                         <a href="#contact" class="service-link">
                             Learn More
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                                <path d="M5 12h14M12 5l7 7-7 7" />
                             </svg>
                         </a>
                     </div>
@@ -1622,49 +1655,68 @@
                     <div class="trust-logo">
                         <div class="trust-logo-icon">
                             <svg viewBox="0 0 24 24">
-                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/>
+                                <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
                             </svg>
                         </div>
                         <span class="trust-logo-text">Master Builders<br>Member</span>
                     </div>
-                    
+
                     <div class="trust-logo">
                         <div class="trust-logo-icon">
                             <svg viewBox="0 0 24 24">
-                                <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                                <path
+                                    d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                             </svg>
                         </div>
                         <span class="trust-logo-text">Licensed Building<br>Practitioner</span>
                     </div>
-                    
+
                     <div class="trust-logo">
                         <div class="trust-logo-icon">
                             <svg viewBox="0 0 24 24">
-                                <path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+                                <path
+                                    d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
                             </svg>
                         </div>
                         <span class="trust-logo-text">Site Safe<br>Certified</span>
                     </div>
-                    
+
                     <div class="trust-logo">
                         <div class="trust-logo-icon">
                             <svg viewBox="0 0 24 24">
-                                <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                                <path d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>
                         </div>
                         <span class="trust-logo-text">10 Year<br>Guarantee</span>
                     </div>
                 </div>
-                
+
                 <div class="trust-review">
                     <div class="review-stars">
-                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-                        <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                        </svg>
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                        </svg>
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                        </svg>
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                        </svg>
+                        <svg viewBox="0 0 24 24">
+                            <path
+                                d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                        </svg>
                     </div>
-                    <p class="review-text">"BuildRight transformed our tired 1970s kitchen into a stunning modern space. They were professional, tidy, and finished ahead of schedule. Couldn't recommend them more highly!"</p>
+                    <p class="review-text">"BuildRight transformed our tired 1970s kitchen into a stunning modern space.
+                        They were professional, tidy, and finished ahead of schedule. Couldn't recommend them more
+                        highly!"</p>
                     <p class="review-author">— Sarah & Mike T. <span>• Remuera</span></p>
                 </div>
             </div>
@@ -1682,9 +1734,10 @@
                         <div class="footer-logo-icon">BR</div>
                         <div class="footer-logo-text">Build<span>Right</span> NZ</div>
                     </div>
-                    <p class="footer-tagline">Auckland's most reliable renovation specialists. On time, on budget, no mess left behind.</p>
+                    <p class="footer-tagline">Auckland's most reliable renovation specialists. On time, on budget, no
+                        mess left behind.</p>
                 </div>
-                
+
                 <div class="footer-column">
                     <h4>Service Areas</h4>
                     <ul class="footer-links">
@@ -1696,7 +1749,7 @@
                         <li><a href="#" class="footer-link">North Shore</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-column">
                     <h4>Services</h4>
                     <ul class="footer-links">
@@ -1707,31 +1760,34 @@
                         <li><a href="#services" class="footer-link">General Repairs</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-column">
                     <h4>Contact Us</h4>
                     <div class="footer-contact-item">
                         <svg viewBox="0 0 24 24">
-                            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                            <path
+                                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
                         </svg>
                         <a href="tel:+6495551234">09 555 1234</a>
                     </div>
                     <div class="footer-contact-item">
                         <svg viewBox="0 0 24 24">
-                            <path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                            <path
+                                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                         </svg>
                         <a href="mailto:info@buildrightnz.co.nz">info@buildrightnz.co.nz</a>
                     </div>
                     <div class="footer-contact-item">
                         <svg viewBox="0 0 24 24">
-                            <path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                            <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                            <path
+                                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                            <path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                         </svg>
                         <span>Serving all of Auckland</span>
                     </div>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
                 <p class="footer-copyright">&copy; 2025 BuildRight NZ Ltd. All rights reserved. NZBN: 123456789</p>
                 <div class="footer-legal">
@@ -1761,12 +1817,12 @@
         themeToggle.addEventListener('click', () => {
             const currentTheme = html.getAttribute('data-theme');
             const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-            
+
             html.setAttribute('data-theme', newTheme === 'light' ? 'light' : '');
             if (newTheme === 'dark') {
                 html.removeAttribute('data-theme');
             }
-            
+
             localStorage.setItem('theme', newTheme);
         });
 
@@ -1774,7 +1830,7 @@
         // Header Scroll Effect
         // ========================================
         const header = document.getElementById('header');
-        
+
         window.addEventListener('scroll', () => {
             if (window.scrollY > 50) {
                 header.classList.add('scrolled');
@@ -1908,14 +1964,14 @@
 
         quoteForm.addEventListener('submit', (e) => {
             e.preventDefault();
-            
+
             const formData = new FormData(quoteForm);
             const name = formData.get('name');
-            
+
             // Show success message (in production, this would submit to a server)
             const submitBtn = quoteForm.querySelector('.form-submit');
             const originalText = submitBtn.innerHTML;
-            
+
             submitBtn.innerHTML = `
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M20 6L9 17l-5-5"/>
@@ -1924,7 +1980,7 @@
             `;
             submitBtn.style.background = '#22c55e';
             submitBtn.disabled = true;
-            
+
             setTimeout(() => {
                 submitBtn.innerHTML = originalText;
                 submitBtn.style.background = '';
@@ -1955,4 +2011,5 @@
     </script>
 
 </body>
+
 </html>
